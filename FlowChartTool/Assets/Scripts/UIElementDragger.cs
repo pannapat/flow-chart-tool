@@ -8,9 +8,11 @@ public class UIElementDragger : MonoBehaviour
 {
     public GameObject FlowChartPanel;
 
+    public const string CLONABLE_TAG = "UIClonable";
     public const string DRAGGABLE_TAG = "UIDraggable";
 
     private bool dragging = false;
+    private bool cloning = false;
 
     private Vector2 originalPosition;
 
@@ -27,11 +29,11 @@ public class UIElementDragger : MonoBehaviour
         {
             objectToDrag = GetDraggableTransformUnderMouse();
 
-            if(objectToDrag != null)
+            if (objectToDrag != null)
             {
                 dragging = true;
 
-                objectToDrag.SetAsLastSibling();
+                //objectToDrag.SetAsLastSibling();
 
                 originalPosition = objectToDrag.position;
             }
@@ -44,18 +46,39 @@ public class UIElementDragger : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            dragging = false;
 
             if (objectToDrag != null)
             {
-                Image clonedObject = Instantiate(objectToDrag.GetComponent<Image>());
-                //clonedObject.tag = "Untagged";
-                clonedObject.raycastTarget = false;
-                clonedObject.transform.SetParent(FlowChartPanel.transform);
+                if (objectToDrag.tag == CLONABLE_TAG && !cloning)
+                {
+                    cloning = true;
+                    objectToDragImage = objectToDrag.GetComponent<Image>();
+                    Image clonedObject = Instantiate(objectToDrag.GetComponent<Image>());
+                    clonedObject.tag = DRAGGABLE_TAG;
 
-                clonedObject.transform.position = Input.mousePosition;
-                objectToDrag.position = originalPosition;
+                    //objectToDragImage.raycastTarget = false;
+                    clonedObject.transform.SetParent(FlowChartPanel.transform);
+
+                    clonedObject.transform.position = Input.mousePosition;
+                    objectToDrag.position = originalPosition;
+                    //objectToDragImage.GetComponent<InputField>().placeholder.GetComponent<Text>().color = new Color(50, 50, 50);
+
+                    //GameObject obj = GameObject.Find("InputField");
+                    //InputField inputField = obj.GetComponent<InputField>();
+                    //inputField.placeholder.color = new Color(0, 0, 0);
+
+                    //GameObject rectangleWithTextField = GameObject.Find("RectangleWithTextField");
+                    InputField inputField2 = clonedObject.transform.GetChild(0).gameObject.GetComponent<InputField>();
+                    //InputField inputField2 = rectangleWithTextField.transform.GetChild(0).gameObject.GetComponent<InputField>();
+                    inputField2.placeholder.color = new Color(0.1960784f, 0.1960784f, 0.1960784f);
+
+
+                    objectToDrag = null;
+                }
             }
+
+            dragging = false;
+            cloning = false;
         }
     }
 
@@ -80,7 +103,7 @@ public class UIElementDragger : MonoBehaviour
     {
         GameObject clickedObject = GetObjectUnderMouse();
 
-        if (clickedObject != null && clickedObject.tag == DRAGGABLE_TAG)
+        if (clickedObject != null && clickedObject.tag == CLONABLE_TAG || clickedObject.tag == DRAGGABLE_TAG)
         {
             return clickedObject.transform;
         }
