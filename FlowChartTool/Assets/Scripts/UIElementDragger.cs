@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 public class UIElementDragger : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class UIElementDragger : MonoBehaviour
 
     private Transform objectToDrag;
     private Image objectToDragImage;
+
+
+    LinkedList<String> myList = new LinkedList<String>();
 
     List<RaycastResult> hitObjects = new List<RaycastResult>();
 
@@ -100,5 +104,20 @@ public class UIElementDragger : MonoBehaviour
             return clickedObject.transform;
         }
         return null;
+    }
+
+    private void storeNewNode()
+    {
+        // Adding nodes in LinkedList
+        myList.AddLast("Geeks");
+        myList.AddLast("for");
+        myList.AddLast("Data Structures");
+        myList.AddLast("Noida");
+
+        // To check if LinkedList is empty or not
+        if (myList.Count > 0)
+            Console.WriteLine("LinkedList is not empty");
+        else
+            Console.WriteLine("LinkedList is empty");
     }
 }
