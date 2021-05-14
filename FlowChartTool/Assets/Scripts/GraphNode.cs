@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace Graphs
 {
@@ -11,6 +12,7 @@ namespace Graphs
 
         T value;
         List<GraphNode<T>> neighbors;
+        Transform transform;
 
         #endregion
 
@@ -19,6 +21,13 @@ namespace Graphs
         public GraphNode(T value)
         {
             this.value = value;
+            neighbors = new List<GraphNode<T>>();
+        }
+
+        public GraphNode(T value, Transform transform)
+        {
+            this.value = value;
+            this.transform = transform;
             neighbors = new List<GraphNode<T>>();
         }
 

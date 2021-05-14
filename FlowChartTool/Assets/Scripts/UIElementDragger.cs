@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
+using Graphs;
 
 public class UIElementDragger : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class UIElementDragger : MonoBehaviour
     List<RaycastResult> hitObjects = new List<RaycastResult>();
 
     #region MonoBehavior API
+
+    void Start()
+    {
+    }
 
     void Update()
     {
@@ -59,8 +64,11 @@ public class UIElementDragger : MonoBehaviour
                     objectToDragImage = objectToDrag.GetComponent<Image>();
                     Image clonedObject = Instantiate(objectToDrag.GetComponent<Image>());
                     clonedObject.tag = DRAGGABLE_TAG;
-
                     clonedObject.transform.SetParent(FlowChartPanel.transform);
+
+                    GraphNode<string> node = new GraphNode<string>("", clonedObject.transform);
+                    FlowChartPanel.GetComponent<FlowChartPanel>().getGraph().AddNode(node);
+                    Debug.Log(FlowChartPanel.GetComponent<FlowChartPanel>().getGraph().Count);
 
                     clonedObject.transform.position = Input.mousePosition;
                     objectToDrag.position = originalPosition;

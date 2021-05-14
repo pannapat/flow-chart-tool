@@ -63,8 +63,22 @@ namespace Graphs
             else
             {
                 nodes.Add(new GraphNode<T>(value));
+
                 return true;
             }
+        }
+
+        public bool AddNode(GraphNode<T> node)
+        {
+            //if (Find(node.Value) != null)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+                nodes.Add(node);
+                return true;
+            //}
         }
 
         public bool AddEdge(T value1, T value2)
