@@ -66,7 +66,7 @@ public class UIElementDragger : MonoBehaviour
                     clonedObject.tag = DRAGGABLE_TAG;
                     clonedObject.transform.SetParent(FlowChartPanel.transform);
 
-                    GraphNode<string> node = new GraphNode<string>("", clonedObject.transform);
+                    GraphNode<GameObject> node = new GraphNode<GameObject>(clonedObject.gameObject, clonedObject.transform);
                     FlowChartPanel.GetComponent<FlowChartPanel>().getGraph().AddNode(node);
                     Debug.Log(FlowChartPanel.GetComponent<FlowChartPanel>().getGraph().Count);
 

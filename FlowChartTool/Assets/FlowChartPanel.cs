@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class FlowChartPanel : MonoBehaviour
 {
-    Graph<string> graph;
+    public Graph<GameObject> graph;
 
     // Start is called before the first frame update
     void Start()
     {
-        graph = new Graph<string>();
+        graph = new Graph<GameObject>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class FlowChartPanel : MonoBehaviour
         
     }
 
-    public Graph<string> getGraph()
+    public Graph<GameObject> getGraph()
     {
         return this.graph;
     }
