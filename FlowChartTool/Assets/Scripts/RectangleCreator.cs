@@ -35,9 +35,9 @@ public class RectangleCreator : MonoBehaviour, IPointerClickHandler
         Image image = emptyObj.GetComponent<Image>();
         image.color = Color.red;
         RectTransform newEdge = emptyObj.GetComponent<RectTransform>();
-        (GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).rectTransform = newEdge;
+        //(GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).rectTransform = newEdge;
 
-        (GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).SetObjects(newElement, this.originNode);
+        (GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).SetObjects(newElement, this.originNode, newEdge);
 
         grahDS = GameObject.Find("FlowChartPanel").GetComponent<FlowChartPanel>().getGraph();
         grahDS.AddNode(newElement);

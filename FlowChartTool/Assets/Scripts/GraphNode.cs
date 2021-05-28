@@ -12,6 +12,7 @@ namespace Graphs
 
         T value;
         List<GraphNode<T>> neighbors;
+        List<RectTransform> edges;
         Transform transform;
 
         #endregion
@@ -58,15 +59,15 @@ namespace Graphs
         /// <returns>true if the neighbor was added, otherwise, returns false</returns>
         public bool AddNeighbor(GraphNode<T> neighbor)
         {
-            if (neighbors.Contains(neighbor))
-            {
-                return false;
-            }
-            else
-            {
+            //if (neighbors.Contains(neighbor))
+            //{
+            //    return false;
+            //}
+            //else
+            //{
                 neighbors.Add(neighbor);
                 return true;
-            }
+            //}
         }
 
         /// <summary>
