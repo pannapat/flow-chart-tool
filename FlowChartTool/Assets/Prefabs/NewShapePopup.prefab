@@ -195,8 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91a1889fea25462886b3a33b3f330f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondPrefab: {fileID: 7735663649317077731, guid: 451b184a507c9477f91da6d9e25491bf,
-    type: 3}
+  FlowChartPanel: {fileID: 0}
 --- !u!1 &7926708226767548369
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,5 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc2ecd82693f4a2ebc4fb9968f4764f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectanglePrefab: {fileID: 6755640158897914301, guid: e472b74952ab54d26981c20201975612,
+  FlowChartPanel: {fileID: 0}
+  originNode: {fileID: 0}
+  rectanglePrefab: {fileID: 2556867066528294147, guid: f83eaadf9b06a4e1384cb4969b81bbb4,
     type: 3}

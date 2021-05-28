@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390ed308c55f14a389dfcc346a9d775e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newShapePopupPrefab: {fileID: 6306840372322496524, guid: 1f4276f693d754ab28c0ecac9d2242eb,
-    type: 3}
+  FlowChartPanel: {fileID: 0}
   originElement: {fileID: 2556867066528294147}
+  rectangleShapeObject: {fileID: 0}
+  diamondShapeObject: {fileID: 0}
