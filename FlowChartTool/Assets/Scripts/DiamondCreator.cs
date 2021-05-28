@@ -4,14 +4,12 @@ using Graphs;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DiamondCreator : MonoBehaviour, IPointerClickHandler
 {
-    private Graph<GameObject> grahDS;
-    public GameObject FlowChartPanel;
-
     public GameObject originNode;
-
+    private Graph<GameObject> grahDS;
     public void OnPointerClick(PointerEventData eventData)
     {
         Vector2 mousePosition = eventData.position;
@@ -22,16 +20,25 @@ public class DiamondCreator : MonoBehaviour, IPointerClickHandler
         newElement.transform.localPosition = new Vector3(0, -200, 0);
         newElement.tag = "UIDraggable";
 
-        GameObject newEdgeElement = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/VerticalArrow.prefab"));
-        newEdgeElement.transform.SetParent(GameObject.Find("Canvas").transform);
-        newEdgeElement.transform.localPosition = new Vector3(0, -100, 0);
+        GameObject emptyObj = new GameObject("edge", typeof(RectTransform));
+        emptyObj.AddComponent<Image>();
+        emptyObj.transform.SetParent(this.gameObject.transform.parent.parent.parent);
+        Image image = emptyObj.GetComponent<Image>();
+        image.color = Color.red;
+        RectTransform newEdge = emptyObj.GetComponent<RectTransform>();
 
+        (GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).SetObjects(newElement, this.originNode, newEdge);
 
-        Destroy(this.transform.parent.gameObject);
         grahDS = GameObject.Find("FlowChartPanel").GetComponent<FlowChartPanel>().getGraph();
         grahDS.AddNode(newElement);
         grahDS.AddEdge(this.originNode, newElement);
-        Debug.Log(grahDS.Count);
+
+        Destroy(this.transform.parent.gameObject);
     }
-   
+
+    void Start()
+    {
+        this.originNode = this.transform.parent.parent.gameObject;
+    }
+
 }
