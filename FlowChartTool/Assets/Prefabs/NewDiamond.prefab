@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 1883385894315132040}
   - component: {fileID: 1883385894315132047}
   - component: {fileID: 1883385894315132046}
+  - component: {fileID: 8737720285070775120}
   m_Layer: 5
   m_Name: NewDiamond
   m_TagString: Untagged
@@ -197,3 +198,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 12.3
+--- !u!114 &8737720285070775120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883385894315132044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343782482ceba476f924eb022d297a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edgeList: []

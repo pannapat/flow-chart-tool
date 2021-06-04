@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
 using Graphs;
+using UnityEditor;
 
 public class UIElementDragger : MonoBehaviour
 {
@@ -61,8 +62,22 @@ public class UIElementDragger : MonoBehaviour
                 if (objectToDrag.tag == CLONABLE_TAG && !cloning)
                 {
                     cloning = true;
-                    objectToDragImage = objectToDrag.GetComponent<Image>();
-                    Image clonedObject = Instantiate(objectToDrag.GetComponent<Image>());
+                    //objectToDragImage = objectToDrag.GetComponent<Image>();
+                    GameObject newShapePopupPrefab;
+                    GameObject clonedObject;
+                    Vector3 clonedObjectPosition = this.transform.localPosition;
+                    clonedObjectPosition.y -= 200;
+                    if (objectToDrag.name == "Diamond")
+                    {
+                        newShapePopupPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/NewDiamond.prefab");
+                        clonedObject = Instantiate(newShapePopupPrefab, clonedObjectPosition, Quaternion.Euler(0, 0, -45));
+                    }
+                    else
+                    {
+                        newShapePopupPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/NewRectangle.prefab");
+                        clonedObject = Instantiate(newShapePopupPrefab, clonedObjectPosition, Quaternion.identity);
+                    }
+                    //Image clonedObject = Instantiate(objectToDrag.GetComponent<Image>());
                     clonedObject.tag = DRAGGABLE_TAG;
                     clonedObject.transform.SetParent(FlowChartPanel.transform);
 
@@ -73,8 +88,8 @@ public class UIElementDragger : MonoBehaviour
                     clonedObject.transform.position = Input.mousePosition;
                     objectToDrag.position = originalPosition;
 
-                    InputField inputField2 = clonedObject.transform.GetChild(0).gameObject.GetComponent<InputField>();
-                    inputField2.placeholder.color = new Color(0.1960784f, 0.1960784f, 0.1960784f);
+                    //InputField inputField2 = clonedObject.transform.GetChild(0).gameObject.GetComponent<InputField>();
+                    //inputField2.placeholder.color = new Color(0.1960784f, 0.1960784f, 0.1960784f);
 
 
                     objectToDrag = null;

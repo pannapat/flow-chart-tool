@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 151, y: 578}
+  m_AnchoredPosition: {x: 2, y: 592}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9883359
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 0.5
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -1258,7 +1258,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 96.5
+  field of view: 76.41974
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1629,8 +1629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -400, y: 0}
-  m_SizeDelta: {x: -800, y: 0}
+  m_AnchoredPosition: {x: -773, y: 0}
+  m_SizeDelta: {x: -1545.9716, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123751252
 MonoBehaviour:
@@ -1679,7 +1679,7 @@ PrefabInstance:
     - target: {fileID: 2308658678262454950, guid: 2193d355b4dbe4a61a16c7dcc375fd98,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 358
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2308658678262454950, guid: 2193d355b4dbe4a61a16c7dcc375fd98,
         type: 3}
@@ -1919,6 +1919,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: UIDraggable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2556867066528294147, guid: f83eaadf9b06a4e1384cb4969b81bbb4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2556867066549602057, guid: f83eaadf9b06a4e1384cb4969b81bbb4,
         type: 3}

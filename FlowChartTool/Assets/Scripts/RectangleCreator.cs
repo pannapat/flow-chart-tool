@@ -16,7 +16,7 @@ public class RectangleCreator : MonoBehaviour, IPointerClickHandler
         Vector2 popupPosition = new Vector2(mousePosition.x, mousePosition.y - 50);
 
         GameObject newElement = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/NewRectangle.prefab"));
-        newElement.transform.SetParent(GameObject.Find("Canvas").transform);
+        newElement.transform.SetParent(GameObject.Find("FlowChartPanel").transform);
         newElement.transform.localPosition = new Vector3(0, -200, 0);
         newElement.tag = "UIDraggable";
 
