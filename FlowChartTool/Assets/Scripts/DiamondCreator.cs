@@ -24,7 +24,7 @@ public class DiamondCreator : MonoBehaviour, IPointerClickHandler
         emptyObj.AddComponent<Image>();
         emptyObj.transform.SetParent(this.gameObject.transform.parent.parent.parent);
         Image image = emptyObj.GetComponent<Image>();
-        image.color = Color.red;
+        image.color = Color.white;
         RectTransform newEdge = emptyObj.GetComponent<RectTransform>();
 
         (GameObject.FindObjectOfType(typeof(UIEdgeRenderer)) as UIEdgeRenderer).SetObjects(newElement, this.originNode, newEdge);
