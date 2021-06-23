@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2556867066528294151}
   - component: {fileID: 2556867066528294144}
   - component: {fileID: 2556867066528294145}
+  - component: {fileID: 5160262588913100768}
   m_Layer: 5
   m_Name: NewRectangle
   m_TagString: Untagged
@@ -91,6 +92,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 22.8
+--- !u!114 &5160262588913100768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556867066528294147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343782482ceba476f924eb022d297a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edgeList: []
 --- !u!1 &2556867066549602059
 GameObject:
   m_ObjectHideFlags: 0
